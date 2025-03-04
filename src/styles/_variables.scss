@@ -1,3 +1,6 @@
+@use 'sass:color';
+@use 'sass:math';
+
 $white:    #fff;
 $gray-100: #f8f9fa;
 $gray-200: #e9ecef;
@@ -76,7 +79,7 @@ $h6-font-size:                $font-size-base;
 // 链接
 $link-color:                              $primary;
 $link-decoration:                         none;
-$link-hover-color:                        darken($link-color, 15%);
+$link-hover-color:                        color.scale($link-color, $lightness: -15%);
 $link-hover-decoration:                   underline;
 
 // body
@@ -92,7 +95,7 @@ $spacer: 1rem;
 $paragraph-margin-bottom:   1rem;
 
 // 字体其他部分 heading list hr 等等
-$headings-margin-bottom:      $spacer / 2;
+$headings-margin-bottom:      calc($spacer / 2);
 $headings-font-family:        null;
 $headings-font-style:         null;
 $headings-font-weight:        500;
@@ -254,7 +257,7 @@ $input-border-radius-lg:                $border-radius-lg;
 $input-border-radius-sm:                $border-radius-sm;
 
 $input-focus-bg:                        $input-bg;
-$input-focus-border-color:              lighten($primary, 25%);
+$input-focus-border-color:              color.scale($primary, $lightness: 25%);
 $input-focus-width:                     .2rem;
 $input-focus-color:                     $input-color;
 $input-focus-shadow-color:              rgba($primary, .25);
