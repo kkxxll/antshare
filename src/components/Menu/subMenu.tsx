@@ -1,11 +1,13 @@
-import classNames from "classnames";
 import React, {
   FC,
-  FunctionComponent,
-  ReactElement,
   useContext,
   useState,
+  ReactNode,
+  ReactElement,
+  FunctionComponent,
+  useRef,
 } from "react";
+import classNames from "classnames";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuitem";
 import Icon from "../Icon/icon";
@@ -13,16 +15,20 @@ import Transition from "../Transiton/transition";
 
 export interface SubMenuProps {
   index?: string;
+  /**下拉菜单选项的文字 */
   title: string;
+  /**下拉菜单选型的扩展类名 */
   className?: string;
-  children: React.ReactNode;
+  children?: ReactNode;
 }
+
 export const SubMenu: FC<SubMenuProps> = ({
   index,
   title,
   children,
   className,
 }) => {
+  const nodeRef = useRef(null);
   const context = useContext(MenuContext);
   const openedSubMenus = context.defaultOpenSubMenus as Array<string>;
   const isOpend =
@@ -69,6 +75,7 @@ export const SubMenu: FC<SubMenuProps> = ({
       "menu-opened": menuOpen,
     });
     const childrenComponent = React.Children.map(children, (child, i) => {
+      // const childElement = child as FunctionComponentElement<MenuItemProps>;
       const childElement = child as ReactElement<
         MenuItemProps,
         FunctionComponent<MenuItemProps>
@@ -84,8 +91,8 @@ export const SubMenu: FC<SubMenuProps> = ({
       }
     });
     return (
-      <Transition in={menuOpen} timeout={300} animation="zoom-in-top">
-        <ul className={subMenuClasses}>{childrenComponent}</ul>
+      <Transition in={menuOpen} timeout={300} animation="zoom-in-top" forRef={nodeRef}>
+        <ul className={subMenuClasses} ref={nodeRef}>{childrenComponent}</ul>
       </Transition>
     );
   };

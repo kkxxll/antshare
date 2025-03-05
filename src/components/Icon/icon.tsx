@@ -5,7 +5,6 @@ import {
   FontAwesomeIconProps,
 } from "@fortawesome/react-fontawesome";
 
-import './style.scss'
 
 export type ThemeProps =
   | "primary"

@@ -21,14 +21,16 @@ const Transition: React.FC<TransitionProps> = ({
   wrapper,
   unmountOnExit = true,
   appear = true,
+  forRef = null,
   ...restProps
 }) => {
   return (
     <CSSTransition
+      nodeRef={forRef}
       classNames={classNames ? classNames : animation}
       {...restProps}
     >
-      {wrapper ? <div>{children}</div> : children}
+      {wrapper ? <div className="clearfix">{children}</div> : children}
     </CSSTransition>
   );
 };

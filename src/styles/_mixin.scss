@@ -60,6 +60,7 @@
   .zoom-in-#{$direction}-exit {
     opacity: 1;
   }
+  .zoom-in-#{$direction}-exit-done,
   .zoom-in-#{$direction}-exit-active {
     opacity: 0;
     transform: $scaleStart;

@@ -4,9 +4,12 @@
 
 - vite + react + typescript
 - vitest + @testing-library/react
-
+- vitepress
 
 - [x] button
 - [x] menu
-- [ ] icon
-- [ ] menu
+- [x] icon
+- [x] transition
+- [ ] input
+- [ ] upload
+- [ ] form
