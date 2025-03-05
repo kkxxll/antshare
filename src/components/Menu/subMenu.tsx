@@ -2,6 +2,8 @@ import classNames from "classnames";
 import React, { FC, FunctionComponentElement, useContext, useState } from "react";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuitem";
+import Icon from "../Icon/icon";
+import {faAngleDoubleDown} from '@fortawesome/free-solid-svg-icons'
 
 export interface SubMenuProps {
   index?: string;
@@ -84,6 +86,7 @@ export const SubMenu: FC<SubMenuProps> = ({
       <div className="submenu-title" {...clickEvents}>
         {title}
         {/* <Icon icon="angle-down" className="arrow-icon" /> */}
+        <Icon icon={faAngleDoubleDown} className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>
