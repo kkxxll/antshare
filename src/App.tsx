@@ -5,6 +5,9 @@ import Menu, { MenuProps } from "./components/Menu/menu";
 import MenuItem from "./components/Menu/menuitem";
 import SubMenu from "./components/Menu/subMenu";
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from "@fortawesome/free-solid-svg-icons";
+library.add(fas)
 const App: FC = () => {
   const testProps: MenuProps = {
     defaultIndex: "0",

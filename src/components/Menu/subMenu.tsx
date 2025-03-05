@@ -1,9 +1,15 @@
 import classNames from "classnames";
-import React, { FC, FunctionComponentElement, useContext, useState } from "react";
+import React, {
+  FC,
+  FunctionComponent,
+  ReactElement,
+  useContext,
+  useState,
+} from "react";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuitem";
 import Icon from "../Icon/icon";
-import {faAngleDoubleDown} from '@fortawesome/free-solid-svg-icons'
+import Transition from "../Transiton/transition";
 
 export interface SubMenuProps {
   index?: string;
@@ -63,7 +69,10 @@ export const SubMenu: FC<SubMenuProps> = ({
       "menu-opened": menuOpen,
     });
     const childrenComponent = React.Children.map(children, (child, i) => {
-      const childElement = child as FunctionComponentElement<MenuItemProps>;
+      const childElement = child as ReactElement<
+        MenuItemProps,
+        FunctionComponent<MenuItemProps>
+      >;
       if (childElement.type.displayName === "MenuItem") {
         return React.cloneElement(childElement, {
           index: `${index}-${i}`,
@@ -75,18 +84,16 @@ export const SubMenu: FC<SubMenuProps> = ({
       }
     });
     return (
-      <ul className={subMenuClasses}>{childrenComponent}</ul>
-      // TODO
-      // <Transition in={menuOpen} timeout={300} animation="zoom-in-top">
-      // </Transition>
+      <Transition in={menuOpen} timeout={300} animation="zoom-in-top">
+        <ul className={subMenuClasses}>{childrenComponent}</ul>
+      </Transition>
     );
   };
   return (
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
         {title}
-        {/* <Icon icon="angle-down" className="arrow-icon" /> */}
-        <Icon icon={faAngleDoubleDown} className="arrow-icon" />
+        <Icon icon="angle-down" className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>
