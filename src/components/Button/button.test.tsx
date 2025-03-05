@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Button, { ButtonProps } from './button'
 // const defaultProps = {
 //   onClick: jest.fn()
@@ -37,7 +37,7 @@ describe('test Button componen t', () => {
     const element = wrapper.getByText('Link')
     expect(element).toBeInTheDocument()
     expect(element.tagName).toEqual('A')
-    expect(element).toHaveClass('btn btn-link')
+    expect(element).toHaveClass('as-btn btn-link')
   })
   // it('should render disabled button when disabled set to true', () => {
   //   const wrapper = render(<Button {...disabledProps}>Nice</Button>)

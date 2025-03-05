@@ -1,6 +1,7 @@
 import classNames from "classnames";
-import React, { createContext, ReactElement, useState } from "react";
+import React, { createContext, CSSProperties, ReactElement, ReactNode, useState } from "react";
 import { MenuItemProps } from "./menuitem";
+import './style.scss'
 
 type MenuMode = "horizontal" | "vertical";
 export interface MenuProps {
@@ -8,11 +9,11 @@ export interface MenuProps {
   className?: string;
   /**菜单类型 横向或者纵向 */
   mode?: MenuMode;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   onSelect?: (selectedIndex: string) => void;
   /**设置子菜单的默认打开 只在纵向模式下生效 */
   defaultOpenSubMenus?: string[];
-  children: React.ReactNode;
+  children?: ReactNode;
 }
 
 interface IMenuContext {

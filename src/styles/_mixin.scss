@@ -9,7 +9,7 @@
   $background,
   $border,
   $color,
-  $hover-background: color.scale($color, $lightness: 7.5%),
+  $hover-background: color.scale($background, $lightness: 7.5%),
   $hover-border: color.scale($border, $lightness: 10%),
   $hover-color: $color,
 ) {
