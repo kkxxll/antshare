@@ -4,18 +4,18 @@ import MenuItem from "./menuitem";
 import SubMenu from "./subMenu";
 import { vi } from 'vitest'
 
-vi.mock("../Icon/icon", () => {
-  return () => {
-    return <i className="fa" />;
-  };
-});
-vi.mock("react-transition-group", () => {
-  return {
-    CSSTransition: (props: any) => {
-      return props.children;
-    },
-  };
-});
+// vi.mock("../Icon/icon", () => {
+//   return () => {
+//     return <i className="fa" />;
+//   };
+// });
+// vi.mock("react-transition-group", () => {
+//   return {
+//     CSSTransition: (props: any) => {
+//       return props.children;
+//     },
+//   };
+// });
 const testProps: MenuProps = {
   defaultIndex: "0",
   onSelect: vi.fn(),
