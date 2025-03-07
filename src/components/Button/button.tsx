@@ -5,14 +5,17 @@ export type ButtonType = "primary" | "default" | "danger" | "link";
 
 interface BaseButtonProps {
   className?: string;
-  /**设置 Button 的禁用 */
+  /** 设置 Button 的禁用 */
   disabled?: boolean;
-  /**设置 Button 的尺寸 */
+  /** 设置 Button 的尺寸 */
   size?: ButtonSize;
-  /**设置 Button 的类型 */
+  /** 设置 Button 的类型 */
   btnType?: ButtonType;
+  /** Button contents */
   children: React.ReactNode;
+  /** Button contents */
   href?: string;
+  /** Button contents */
   defaultProps?: object;
 }
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
