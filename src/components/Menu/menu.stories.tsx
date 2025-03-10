@@ -2,7 +2,6 @@ import { MenuItem } from "./menuitem";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within } from "@storybook/test";
 import Menu from "./menu";
-import "./style.scss";
 import SubMenu from "./subMenu";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

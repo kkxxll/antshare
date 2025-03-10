@@ -43,7 +43,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     delete restProps.defaultValue;
     restProps.value = fixControlledValue(props.value);
   }
-  console.log(icon)
   return (
     <div className={cnames} style={style}>
       {prepend && <div className="as-input-group-prepend">{prepend}</div>}

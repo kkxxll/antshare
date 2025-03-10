@@ -4,6 +4,11 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 
 library.add(fas)
 
+import '../src/components/Menu/style.scss'
+import '../src/components/Button/style.scss'
+import '../src/components/Input/style.scss'
+import '../src/components/AutoComplete/style.scss'
+
 
 const preview: Preview = {
   parameters: {
