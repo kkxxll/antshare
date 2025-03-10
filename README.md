@@ -12,6 +12,6 @@
 - [x] icon
 - [x] transition
 - [x] input
-- [ ] autoComplete
+- [x] autoComplete
 - [ ] upload
 - [ ] form
