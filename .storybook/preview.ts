@@ -8,6 +8,7 @@ import '../src/components/Menu/style.scss'
 import '../src/components/Button/style.scss'
 import '../src/components/Input/style.scss'
 import '../src/components/AutoComplete/style.scss'
+import '../src/components/Form/style.scss'
 
 
 const preview: Preview = {

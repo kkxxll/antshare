@@ -10,8 +10,9 @@
 - [x] button
 - [x] menu
 - [x] icon
+- [x] progress
 - [x] transition
 - [x] input
 - [x] autoComplete
-- [ ] upload
-- [ ] form
+- [x] upload
+- [x] form

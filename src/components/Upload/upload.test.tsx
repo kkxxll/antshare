@@ -3,13 +3,18 @@ import { render, RenderResult, fireEvent, waitFor } from '@testing-library/react
 
 import { Upload, UploadProps } from './upload'
 import { Mocked, vi } from 'vitest'
+import { IconProps } from '../Icon/icon'
 
 
-// vi.mock('../Icon/icon', () => {
-//   return (props: any) => {
-//     return <span onClick={props.onClick}>{props.icon}</span>
-//   }
-// })
+vi.mock('../Icon/icon', () => {
+  return {
+    default: ({ onClick, icon }: IconProps) => (
+      <div onClick={onClick} className={icon as string}>
+        {icon as string}
+      </div>
+    ),
+  }
+})
 vi.mock('axios')
 const mockedAxios = axios as Mocked<typeof axios>
 
