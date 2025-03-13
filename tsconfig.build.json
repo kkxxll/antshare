@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "ESNext",
+    "target": "ESNext",
+    "declaration": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    // "esModuleInterop": true
+  },
+  "include": ["src/components", "src/hooks"],
+  "exclude": ["src/**/*.test.tsx", "src/**/*.stories.tsx"]
+}
