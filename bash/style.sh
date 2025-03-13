@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ADDITIONAL_DATA="@use \"../src/styles/global\" as *;\n"
+ADDITIONAL_DATA="@use \"../../styles/_global\" as *;\n"
 
 for file in $(find . -name "*.scss" ! -name "_*" -type f); do
   TEMP_FILE=$(mktemp)
@@ -9,4 +9,4 @@ done
 
 # 编译所有 SCSS 文件
 # sass styles:output
-sass src/styles/index.scss dist/styles/index.css
+sass src/styles/_index.scss dist/styles/index.css
