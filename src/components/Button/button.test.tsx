@@ -1,5 +1,7 @@
 import { render } from '@testing-library/react'
 import Button, { ButtonProps } from './button'
+import React from 'react'
+
 // const defaultProps = {
 //   onClick: jest.fn()
 // }

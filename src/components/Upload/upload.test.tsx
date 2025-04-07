@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { render, RenderResult, fireEvent, waitFor } from '@testing-library/react'
+import React from 'react'
 
 import { Upload, UploadProps } from './upload'
 import { Mocked, vi } from 'vitest'

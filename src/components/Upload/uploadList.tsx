@@ -2,6 +2,8 @@ import { FC } from 'react'
 import { UploadFile } from './upload'
 import Icon from '../Icon/icon'
 import Progress from '../Progress/progress'
+import React from 'react'
+
 interface UploadListProps {
   fileList: UploadFile[];
   onRemove: (_file: UploadFile) => void;

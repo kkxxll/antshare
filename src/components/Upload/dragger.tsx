@@ -1,5 +1,6 @@
 import { FC, useState, DragEvent, ReactNode } from "react";
 import classNames from "classnames";
+import React from "react";
 
 interface DraggerProps {
   onFile: (files: FileList) => void;

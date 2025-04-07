@@ -30,6 +30,7 @@ interface IMenuContext {
   defaultOpenSubMenus?: string[];
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const MenuContext = createContext<IMenuContext>({ index: "0" });
 
 export const Menu: FC<MenuProps> = (props) => {

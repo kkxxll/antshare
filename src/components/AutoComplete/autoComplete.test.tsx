@@ -2,6 +2,7 @@ import { config } from 'react-transition-group'
 import { render, RenderResult, fireEvent, waitFor } from '@testing-library/react'
 import { AutoComplete, AutoCompleteProps, DataSourceType } from './autoComplete'
 import { vi } from 'vitest'
+import React from 'react'
 
 
 config.disabled = true

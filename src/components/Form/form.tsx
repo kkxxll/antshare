@@ -31,6 +31,7 @@ export type IFormRef = Omit<
   ReturnType<typeof useStore>,
   "fields" | "dispatch" | "form"
 >;
+// eslint-disable-next-line react-refresh/only-export-components
 export const FormContext = createContext<IFormContext>({} as IFormContext);
 export const Form = forwardRef<IFormRef, FormProps>((props, ref) => {
   const {
