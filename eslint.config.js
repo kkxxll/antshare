@@ -8,7 +8,7 @@ export default tseslint.config(
   { ignores: ["dist"] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ["**/*.{ts,tsx}"],
+    files: ["**/*.{ts,tsx,js}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -24,13 +24,5 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
     },
-    overrides: [
-      {
-        files: ["**/*.spec.js", "**/*.test.js"],
-        env: {
-          jest: true,
-        },
-      },
-    ],
   }
 );

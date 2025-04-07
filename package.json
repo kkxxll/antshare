@@ -22,14 +22,14 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.8.2",
-    "classnames": "^2.5.1",
+    "classnames": "^2.5.1"
+  },
+  "devDependencies": {
     "lodash-es": "^4.17.21",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-transition-group": "^4.4.5",
-    "sass-embedded": "^1.85.1"
-  },
-  "devDependencies": {
+    "sass-embedded": "^1.85.1",
     "@chromatic-com/storybook": "^3.2.5",
     "@eslint/js": "^9.21.0",
     "@jest/globals": "^29.7.0",
