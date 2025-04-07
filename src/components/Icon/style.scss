@@ -1,3 +1,5 @@
+@use "../../styles/_global" as *;
+
 @each $key, $val in $theme-colors {
   .icon-#{$key} {
     color: $val;

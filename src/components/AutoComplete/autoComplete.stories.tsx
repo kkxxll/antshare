@@ -26,7 +26,7 @@ const meta = {
   // argTypes: { onClick: { action: 'clicked' }, onSelect: { action: 'selected' }, onChange: { action: 'changed' } },
 } satisfies Meta<typeof AutoComplete>;
 export default meta;
-type Story = StoryObj<typeof meta>;
+// type Story = StoryObj<typeof meta>;
 
 export const ASimpleComplete: StoryObj<typeof AutoComplete> = (args: any) => {
   const lakers = [

@@ -1,3 +1,5 @@
+@use "../../styles/_global" as *;
+
 
 @include zoom-animation("top", scaleY(0), scaleY(1), center top);
 @include zoom-animation("left", scale(0.45, 0.45), scale(1, 1), top left);
