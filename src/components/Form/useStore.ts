@@ -35,6 +35,7 @@ export interface FieldsAction {
   value: any;
 }
 function fieldsReducer(state: FieldsState, action: FieldsAction): FieldsState {
+  const { isValid, errors } = action.value;
   switch (action.type) {
     case "addField":
       return {
@@ -47,7 +48,6 @@ function fieldsReducer(state: FieldsState, action: FieldsAction): FieldsState {
         [action.name]: { ...state[action.name], value: action.value },
       };
     case "updateValidateResult":
-      const { isValid, errors } = action.value;
       return {
         ...state,
         [action.name]: { ...state[action.name], isValid, errors },
@@ -160,11 +160,17 @@ function useStore(initialValues?: Record<string, any>) {
       });
     } finally {
       setForm({ ...form, isSubmitting: false, isValid, errors });
-      return {
+      // 定义返回值
+      const result = {
         isValid,
         errors,
         values: valueMap,
       };
+
+      // 返回结果
+      // eslint-disable-next-line no-unsafe-finally
+      return result;
+
     }
   };
   return {

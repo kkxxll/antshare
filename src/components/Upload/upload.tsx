@@ -10,8 +10,8 @@ export interface UploadFile {
   status?: UploadFileStatus;
   percent: number;
   raw?: File;
-  response?: any;
-  error?: any;
+  response?: unknown;
+  error?: unknown;
 }
 export interface UploadProps {
   /**必选参数, 上传的地址 */
@@ -23,19 +23,19 @@ export interface UploadProps {
   /**文件上传时的钩子 */
   onProgress?: (percentage: number, file: UploadFile) => void;
   /**文件上传成功时的钩子 */
-  onSuccess?: (data: any, file: UploadFile) => void;
+  onSuccess?: (data: unknown, file: UploadFile) => void;
   /**文件上传失败时的钩子 */
-  onError?: (err: any, file: UploadFile) => void;
+  onError?: (err: unknown, file: UploadFile) => void;
   /**文件状态改变时的钩子，上传成功或者失败时都会被调用	 */
   onChange?: (file: UploadFile) => void;
   /**文件列表移除文件时的钩子 */
   onRemove?: (file: UploadFile) => void;
   /**设置上传的请求头部 */
-  headers?: {[key: string]: any };
+  headers?: {[key: string]: unknown };
   /**上传的文件字段名 */
   name?: string;
   /**上传时附带的额外参数 */
-  data?: {[key: string]: any };
+  data?: {[key: string]: unknown };
   /**支持发送 cookie 凭证信息 */
   withCredentials?: boolean;
   /**可选参数, 接受上传的文件类型 */
@@ -111,7 +111,7 @@ export const Upload: FC<UploadProps> = (props) => {
     }
   }
   const uploadFiles = (files: FileList, test?: boolean) => {
-    let postFiles = Array.from(files)
+    const postFiles = Array.from(files)
     if (test) {
       console.log('drag', postFiles[0])
     }
@@ -131,7 +131,7 @@ export const Upload: FC<UploadProps> = (props) => {
     })
   }
   const post = (file: File) => {
-    let _file: UploadFile = {
+    const _file: UploadFile = {
       uid: Date.now() + 'upload-file',
       status: 'ready',
       name: file.name,
@@ -156,7 +156,7 @@ export const Upload: FC<UploadProps> = (props) => {
       },
       withCredentials,
       onUploadProgress: (e: any) => {
-        let percentage = Math.round((e.loaded * 100) / e.total) || 0;
+        const percentage = Math.round((e.loaded * 100) / e.total) || 0;
         if (percentage < 100) {
           updateFileList(_file, { percent: percentage, status: 'uploading'})
           _file.status = 'uploading'

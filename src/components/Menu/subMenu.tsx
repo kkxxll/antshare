@@ -45,7 +45,7 @@ export const SubMenu: FC<SubMenuProps> = ({
     e.preventDefault();
     setOpen(!menuOpen);
   };
-  let timer: any;
+  let timer: number | undefined;
   const handleMouse = (e: React.MouseEvent, toggle: boolean) => {
     clearTimeout(timer);
     e.preventDefault();

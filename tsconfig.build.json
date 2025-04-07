@@ -4,7 +4,7 @@
     "module": "ESNext",
     "target": "ESNext",
     "declaration": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,

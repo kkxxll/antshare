@@ -13,36 +13,22 @@ import Icon from "../Icon/icon";
 import Transition from "../Transiton/transition";
 import useDebounce from "../../hooks/useDebounce";
 import useClickOutside from "../../hooks/useClickOutside";
+import React from "react";
+
 interface DataSourceObject {
   value: string;
 }
-export type DataSourceType<T = {}> = T & DataSourceObject;
+
+export type DataSourceType<T = object> = T & DataSourceObject;
+
 export interface AutoCompleteProps
   extends Omit<InputProps, "onSelect" | "onChange"> {
-  /**
-   * 返回输入建议的方法，可以拿到当前的输入，然后返回同步的数组或者是异步的 Promise
-   * type DataSourceType<T = {}> = T & DataSourceObject
-   */
-  fetchSuggestions: (
-    str: string
-  ) => DataSourceType[] | Promise<DataSourceType[]>;
-  /** 点击选中建议项时触发的回调*/
+  fetchSuggestions: (str: string) => DataSourceType[] | Promise<DataSourceType[]>;
   onSelect?: (item: DataSourceType) => void;
-  /** 文本框发生改变的时候触发的事件*/
   onChange?: (value: string) => void;
-  /**支持自定义渲染下拉项，返回 ReactElement */
   renderOption?: (item: DataSourceType) => ReactElement;
 }
 
-/**
- * 输入框自动完成功能。当输入值需要自动完成时使用，支持同步和异步两种方式
- * 支持 Input 组件的所有属性 支持键盘事件选择
- * ### 引用方法
- *
- * ~~~js
- * import { AutoComplete } from '@as-ui'
- * ~~~
- */
 export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const {
     fetchSuggestions,
@@ -60,14 +46,17 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const [highlightIndex, setHighlightIndex] = useState(-1);
   const triggerSearch = useRef(false);
   const componentRef = useRef<HTMLDivElement>(null);
+  const nodeRef = useRef<HTMLUListElement | null>(null); // 将 useRef 移到组件顶层
   const debouncedValue = useDebounce(inputValue, 300);
+
   useClickOutside(componentRef as React.RefObject<HTMLElement>, () => {
     setSugestions([]);
   });
+
   useEffect(() => {
     if (debouncedValue && triggerSearch.current) {
       setSugestions([]);
-      const results = fetchSuggestions(debouncedValue);
+      const results = fetchSuggestions(debouncedValue as string);
       if (results instanceof Promise) {
         setLoading(true);
         results.then((data) => {
@@ -89,6 +78,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     }
     setHighlightIndex(-1);
   }, [debouncedValue, fetchSuggestions]);
+
   const highlight = (index: number) => {
     if (index < 0) index = 0;
     if (index >= suggestions.length) {
@@ -96,6 +86,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     }
     setHighlightIndex(index);
   };
+
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     switch (e.keyCode) {
       case 13:
@@ -116,15 +107,16 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         break;
     }
   };
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
-    console.log("triggered the value", value);
     setInputValue(value);
     if (onChange) {
       onChange(value);
     }
     triggerSearch.current = true;
   };
+
   const handleSelect = (item: DataSourceType) => {
     setInputValue(item.value);
     setShowDropdown(false);
@@ -133,15 +125,16 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     }
     triggerSearch.current = false;
   };
+
   const renderTemplate = (item: DataSourceType) => {
     return renderOption ? renderOption(item) : item.value;
   };
+
   const generateDropdown = () => {
-    const nodeRef = useRef(null);
     return (
       <Transition
         in={showDropdown || loading}
-        forRef={nodeRef}
+        forRef={nodeRef} // 使用顶层定义的 nodeRef
         animation="zoom-in-top"
         timeout={300}
         onExited={() => {
@@ -172,6 +165,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
       </Transition>
     );
   };
+
   return (
     <div className="as-auto-complete" ref={componentRef}>
       <Input
