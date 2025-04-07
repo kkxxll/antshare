@@ -1,4 +1,4 @@
-@use "../../styles/_global" as *;
+// @use "../../styles/_global" as *;
 
 
 @include zoom-animation("top", scaleY(0), scaleY(1), center top);

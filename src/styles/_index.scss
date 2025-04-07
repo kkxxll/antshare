@@ -1,3 +1,4 @@
-@use '../components/Button/style.scss';
-@use '../components/Upload/style.scss';
-@use '../components/Menu/style.scss';
+@use '../components/Button/style.scss' as *;
+@use '../components/Upload/style.scss' as *;
+@use '../components/Menu/style.scss' as *;
+

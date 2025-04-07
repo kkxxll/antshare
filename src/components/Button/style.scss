@@ -1,29 +1,29 @@
-@use "../../styles/_global" as *;
+@use "../../styles/_global" as btn-global;
 
 .as-btn {
   position: relative;
   display: inline-block;
-  font-weight: $btn-font-weight;
-  line-height: $btn-line-height;
-  color: $body-color;
+  font-weight: btn-global.$btn-font-weight;
+  line-height: btn-global.$btn-line-height;
+  color: btn-global.$body-color;
   white-space: nowrap;
   text-align: center;
   vertical-align: middle;
   background-image: none;
-  border: $btn-border-width solid transparent;
-  @include button-size(
-    $btn-padding-y,
-    $btn-padding-x,
-    $btn-font-size,
-    $border-radius
+  border: btn-global.$btn-border-width solid transparent;
+  @include btn-global.button-size(
+    btn-global.$btn-padding-y,
+    btn-global.$btn-padding-x,
+    btn-global.$btn-font-size,
+    btn-global.$border-radius
   );
-  box-shadow: $btn-box-shadow;
+  box-shadow: btn-global.$btn-box-shadow;
   cursor: pointer;
-  transition: $btn-transition;
+  transition: btn-global.$btn-transition;
   &.disabled,
   &[disabled] {
     cursor: not-allowed;
-    opacity: $btn-disabled-opacity;
+    opacity: btn-global.$btn-disabled-opacity;
     box-shadow: none;
     > * {
       pointer-events: none;
@@ -32,57 +32,57 @@
 }
 
 .btn-lg {
-  @include button-size(
-    $btn-padding-y-lg,
-    $btn-padding-x-lg,
-    $btn-font-size-lg,
-    $btn-border-radius-lg
+  @include btn-global.button-size(
+    btn-global.$btn-padding-y-lg,
+    btn-global.$btn-padding-x-lg,
+    btn-global.$btn-font-size-lg,
+    btn-global.$btn-border-radius-lg
   );
 }
 .btn-sm {
-  @include button-size(
-    $btn-padding-y-sm,
-    $btn-padding-x-sm,
-    $btn-font-size-sm,
-    $btn-border-radius-sm
+  @include btn-global.button-size(
+    btn-global.$btn-padding-y-sm,
+    btn-global.$btn-padding-x-sm,
+    btn-global.$btn-font-size-sm,
+    btn-global.$btn-border-radius-sm
   );
 }
 
 .btn-primary {
-  @include button-style($primary, $primary, $white);
+  @include btn-global.button-style(btn-global.$primary, btn-global.$primary, btn-global.$white);
 }
 .btn-danger {
-  @include button-style($danger, $danger, $white);
+  @include btn-global.button-style(btn-global.$danger, btn-global.$danger, btn-global.$white);
 }
 
 .btn-default {
-  @include button-style(
-    $white,
-    $gray-400,
-    $body-color,
-    $white,
-    $primary,
-    $primary
+  @include btn-global.button-style(
+    btn-global.$white,
+    btn-global.$gray-400,
+    btn-global.$body-color,
+    btn-global.$white,
+    btn-global.$primary,
+    btn-global.$primary
   );
 }
 
 .btn-link {
-  font-weight: $font-weight-normal;
-  color: $btn-link-color;
-  text-decoration: $link-decoration;
+  font-weight: btn-global.$font-weight-normal;
+  color: btn-global.$btn-link-color;
+  text-decoration: btn-global.$link-decoration;
   box-shadow: none;
   &:hover {
-    color: $btn-link-hover-color;
-    text-decoration: $link-hover-decoration;
+    color: btn-global.$btn-link-hover-color;
+    text-decoration: btn-global.$link-hover-decoration;
   }
   &:focus,
   &.focus {
-    text-decoration: $link-hover-decoration;
+    text-decoration: btn-global.$link-hover-decoration;
     box-shadow: none;
   }
   &:disabled,
   &.disabled {
-    color: $btn-link-disabled-color;
+    color: btn-global.$btn-link-disabled-color;
     pointer-events: none;
   }
 }

@@ -1,4 +1,4 @@
-@use "../../styles/_global" as *;
+@use "../../styles/_global" as upload-global;
 
 .as-upload-list {
     margin: 0;
@@ -7,8 +7,8 @@
   }
   
   .as-uploader-dragger {
-    background: $gray-100;
-    border: 1px dashed $gray-300;
+    background: upload-global.$gray-100;
+    border: 1px dashed upload-global.$gray-300;
     border-radius: 4px;
     cursor: pointer;
     padding: 20px;
@@ -16,11 +16,11 @@
     height: 180px;
     text-align: center;
     &:hover {
-      border: 1px dashed $primary;
+      border: 1px dashed upload-global.$primary;
     }
     &.is-dragover {
-      border: 2px dashed $primary;
-      background: rgba($primary, .2);
+      border: 2px dashed upload-global.$primary;
+      background: rgba(upload-global.$primary, .2);
     }
   }
   
@@ -42,13 +42,13 @@
       margin-right: 40px;
       svg {
         margin-right: 5px;
-        color: $gray-500;
+        color: upload-global.$gray-500;
       }
     }
     .file-name-error {
-      color: $danger;
+      color: upload-global.$danger;
       svg {
-        color: $danger;
+        color: upload-global.$danger;
       }
     }
     .file-status {
@@ -67,7 +67,7 @@
       cursor: pointer;
     }
     &:hover {
-      background-color: $gray-200;
+      background-color: upload-global.$gray-200;
       .file-status {
         display: none;
       }
