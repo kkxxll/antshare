@@ -26,7 +26,7 @@ const Transition: React.FC<TransitionProps> = ({
     <CSSTransition
       nodeRef={forRef}
       classNames={classNames ? classNames : animation}
-      {...restProps}
+      {...restProps as any}
     >
       {wrapper ? <div className="clearfix">{children}</div> : children}
     </CSSTransition>

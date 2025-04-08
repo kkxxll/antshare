@@ -146,7 +146,7 @@ export const Upload: FC<UploadProps> = (props) => {
     formData.append(name || 'file', file)
     if (data) {
       Object.keys(data).forEach(key => {
-        formData.append(key, data[key])
+        formData.append(key, data[key] as string)
       })
     } 
     axios.post(action, formData, {
