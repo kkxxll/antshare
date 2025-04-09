@@ -6,7 +6,7 @@ import sass from 'rollup-plugin-sass'
 
 const overrides = {
   compilerOptions: { declaration: true },
-  exclude: ["src/**/*.test.tsx", "src/**/*.stories.tsx", "src/**/*.stories.mdx", "src/setupTests.ts"]
+  exclude: ["src/**/*.test.tsx", "src/**/*.stories.tsx", "src/**/*.stories.mdx", "src/setupTests.ts"],
 }
 
 const config = {
@@ -15,7 +15,7 @@ const config = {
     nodeResolve(),
     commonjs(),
     json(),
-    typescript({ tsconfigOverride: overrides }),
+    typescript({ tsconfigOverride: overrides, tsconfig: './tsconfig.build.json' }),
     sass({ output: 'dist/index.css' })
   ],
 }
